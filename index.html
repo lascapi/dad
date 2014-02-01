@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />	
+	<title>One Page pour FlowChem</title>
+	<meta name="Resource-type" content="Document" />
+
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<link rel="stylesheet" type="text/css" href="jquery.fullPage.css" />
+	<link rel="stylesheet" type="text/css" href="jquery.shoppingList.css" />
+
+	<!--[if IE]>
+		<script type="text/javascript">
+			 var console = { log: function() {} };
+		</script>
+	<![endif]-->
+		
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>	
+	
+	<script type="text/javascript" src="jquery.fullPage.js"></script>
+	<script type="text/javascript">
+	
+		//fullpage
+		$(document).ready(function() {
+			var initfullpage = $.fn.fullpage({
+				slidesColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
+				anchors: ['firstPage', 'secondPage', '3rdPage'],
+				scrollingSpeed: 500,
+				menu: '#menu',
+				loopHorizontal: false,
+			});
+		});
+		
+		//drag and drop
+		// ajoute la propriété pour le drop et le transfert de données
+		$.event.props.push('dataTransfer');
+		 
+		$(document).ready(function() {
+		    var i, $this, $log = $('#log');
+		 
+		    $('.liste tr td').on({
+			// on commence le drag
+			dragstart: function(e) {
+			    $this = $(this);
+			    
+			    //pour les cellules origine le curseur est celui de la copie, 
+			    //pour les cellules cilbe c'est celui du déplacement
+			    if($this.hasClass("origine")){
+				    var oData = e.dataTransfer;
+				    oData.effectAllowed = "copy";
+			    }else if ($this.hasClass("cible")){
+				    var oData = e.dataTransfer;
+				    oData.effectAllowed = "move";
+			    }
+			    
+			    $(this).css('opacity', '0.5');
+
+			    // on garde le texte en mémoire 
+			    e.dataTransfer.setData('text/html', $(this).text());
+			},
+			// on passe sur un élément draggable
+			dragenter: function(e) { e.preventDefault();},
+			// on quitte un élément draggable
+			dragleave: function() {	
+				if($this.hasClass("cible")){
+					//e.dataTransfer.setData('text/html', $(this).text());
+					$(this).text("");
+				};
+			},
+			// déclenché tant qu on a pas lâché l élément
+			dragover: function(e) { e.preventDefault();},
+			// on lâche l élément
+			drop: function(e) {
+				//si la source est bien une cellule cible 
+				//et si la cible du drop est une cellule cible, on duplique le contenu, sinon on fait rien
+				if($this.hasClass("origine")&$(this).hasClass("cible")){
+					//On duplique le texte dans le nouvel element
+					// on récupère le texte initial 
+					var data = e.dataTransfer.getData('text/html');
+					$(this).text(data);
+				//si les deux cellule sont des cibles on fait l'échange de donné
+				}else if ($this.hasClass("cible")&$(this).hasClass("cible")){
+					// on récupère le texte initial 
+					var data = e.dataTransfer.getData('text/html');
+					// on met le nouveau texte à la place de l ancien
+					$this.text($(this).text());
+					//On duplique le texte dans le nouvel element
+					$(this).text(data);
+				};
+			},
+			// fin du drag (même sans drop)
+			dragend: function() {
+			    $(this).css('opacity', '1');
+			},
+			// au clic sur un élément
+			click: function() {
+			    //alert($(this).text());
+			}
+		   });
+		});
+	</script>
+
+</head>
+<body>
+<ul id="menu">
+	<li data-menuanchor="firstPage"><a href="#firstPage">Présentation</a></li>
+	<li data-menuanchor="secondPage"><a href="#secondPage">Chimies</a></li>
+	<li data-menuanchor="3rdPage"><a href="#3rdPage">Contact</a></li>
+</ul>
+
+<div class="section " id="section0">
+	<h1>FlowChem</h1>
+	<p>La chimie réinventée</p>
+	<p>Introduction de la page.</p>
+	<p>Avec un peu de texte et des images.</p>
+	<p><span class="toSlide" data-index="2">Click here to go to slide 2</span></p>
+</div>
+<div class="section" id="section1">
+	<div class="slide">
+		<div class="intro">
+			<h2>Batch processing</h2>
+			<p>Créer votre propre enchainement de processus !</p>
+			<br />
+			<p>
+			<table class="liste">
+				<tbody>
+					<tr>
+						<td draggable="true" class="origine">A</td>
+						<td draggable="true" class="origine">B</td>
+						<td draggable="true" class="origine">C</td>
+						<td draggable="true" class="origine">D</td>
+						<td draggable="true" class="origine">E</td>
+						<td draggable="true" class="origine">F</td>
+						<td draggable="true" class="origine">G</td>
+					</tr>
+					<tr>
+						<td draggable="true" class="cible"></td>
+						<td draggable="true" class="cible"></td>
+						<td draggable="true" class="cible"></td>
+						<td draggable="true" class="cible"></td>
+						<td draggable="true" class="cible"></td>
+						<td draggable="true" class="cible"></td>
+						<td draggable="true" class="cible"></td>
+					</tr>
+				</tbody>
+			</table>
+			</p>
+			<br />
+			<hr width="50px"/>
+			<br />
+			<p>Instruction</p>
+			<p><img src="imgs/schema.png" alt="schema" width="280px"/></p>
+		</div>
+	</div>
+	<div class="slide">
+		<div class="intro">
+			<img src="imgs/1.png" alt="simple" />
+			<h2>Flow Processing</h2>
+			<p>Easy to use. Configurable and customizable. Amazing</p>
+		</div>
+	</div>
+</div>
+<div class="section" id="section2">
+	<div class="intro">
+		<h2>Contact</h2>
+		<p>Formulaire de contact</p>
+	</div>
+</div>
+</body>
+</html>

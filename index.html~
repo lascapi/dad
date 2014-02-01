@@ -113,7 +113,9 @@
 <div class="section " id="section0">
 	<h1>FlowChem</h1>
 	<p>La chimie réinventée</p>
-	<p>Juste un slogan</p>
+	<p>Introduction de la page.</p>
+	<p>Avec un peu de texte et des images.</p>
+	<p><span class="toSlide" data-index="2">Click here to go to slide 2</span></p>
 </div>
 <div class="section" id="section1">
 	<div class="slide">

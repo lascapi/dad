@@ -1,3 +1,4 @@
+/*DaD project*/
 /* Reset CSS
 * --------------------------------------- */
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,
@@ -133,7 +134,7 @@ p{
 	margin:0;
 }
 #section0 {
-	background-repeat:no-repeat;
+	background-repeat:repeat-y;
 	background-size:100%;
 	background-image: url('imgs/fond-01.png');
 }

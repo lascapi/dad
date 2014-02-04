@@ -82,7 +82,9 @@ body{
 	position: relative;
 }
 h1, h2{
-	font-size: 6em;	
+	font-size: 8em;	
+	color:rgba(144,200,195,1);
+	text-shadow: 0 0 0.1em #459080;
 }
 p{
 	font-size: 2em;
@@ -98,7 +100,7 @@ p{
 	background:#fff;
 	background: rgba(255,255,255, 0.5);
 	-webkit-border-radius: 10px; 
-				border-radius: 10px; 
+	border-radius: 10px; 
 }
 #menu li.active{
 	background:#666;
@@ -134,9 +136,32 @@ p{
 	margin:0;
 }
 #section0 {
-	background-repeat:repeat-y;
-	background-size:100%;
-	background-image: url('imgs/fond-01.png');
+	background-repeat:no-repeat;
+	/* background-size:100% 100%; */
+	background-clip: border-box ;
+	background-position: center;
+	background-image: url('imgs/nuage.jpg');
+}
+#slide1-0 {
+	background-repeat:no-repeat;
+	/* background-size:100% 100%; */
+	background-clip: border-box ;
+	background-position: center;
+	background-image: url('imgs/nuage07.jpg');
+}
+#slide1-1 {
+	background-repeat:no-repeat;
+	/* background-size:100% 100%; */
+	background-clip: border-box ;
+	background-position: center;
+	background-image: url('imgs/nuage02.jpg');
+}
+#section2 {
+	background-repeat:no-repeat;
+	/* background-size:100%; */
+	background-clip: content-box;
+	background-position: center;
+	background-image: url('imgs/nuage05.jpg');
 }
 #section0 img,
 #section1 img{

@@ -54,18 +54,32 @@ abbr,acronym { border: 0;
 	user-select: none;
 }
 .liste {
-	/*margin: 0 200px;*/
-	display:inline;
-	}
-.liste tr td {
-	width:50px;
-	height:50px;
-	border: 1px solid #000;
+	min-width:500px;
+	max-width:1000px;
+	margin: 0 auto;
+	/* display:inline; */
+}
+.liste tbody tr td {
+	width:100px;
+	height:100px;
 	cursor: move;
 	text-align:center;
-	padding:2px;
-	background-color:white;
+	vertical-align:center;
+	padding:20px;
+	background-color:rgba(255,255,255,0);
 	list-style-type:none;
+}
+.liste .cible{
+	background-color:rgba(255,255,255,0.5);
+}
+.liste tbody tr td p{
+	width:100%;
+	font-size:0.8em;
+	color:#000;
+	background-color:rgba(255,255,255,0.2);
+}
+.liste tbody tr td  {
+
 }
 
 /* Custom CSS
@@ -84,7 +98,7 @@ body{
 h1, h2{
 	font-size: 8em;	
 	color:rgba(144,200,195,1);
-	text-shadow: 0 0 0.1em #459080;
+	/* text-shadow: 0 0 0.1em #459080; */
 }
 p{
 	font-size: 2em;
@@ -141,6 +155,11 @@ p{
 	background-clip: border-box ;
 	background-position: center;
 	background-image: url('imgs/nuage.jpg');
+}
+#section0 cite{
+	padding:0.2em 1em;
+	color:rgba(144,200,195,1);
+	background-color: #fff;
 }
 #slide1-0 {
 	background-repeat:no-repeat;

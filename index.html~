@@ -8,7 +8,7 @@
 
 	<link rel="stylesheet" type="text/css" href="style.css" />
 	<link rel="stylesheet" type="text/css" href="jquery.fullPage.css" />
-	<link rel="stylesheet" type="text/css" href="jquery.shoppingList.css" />
+	<!-- <link rel="stylesheet" type="text/css" href="jquery.shoppingList.css" /> -->
 
 	<!--[if IE]>
 		<script type="text/javascript">
@@ -58,7 +58,7 @@
 			    $(this).css('opacity', '0.5');
 
 			    // on garde le texte en mémoire 
-			    e.dataTransfer.setData('text/html', $(this).text());
+			    e.dataTransfer.setData('text/html', $(this).html());
 			},
 			// on passe sur un élément draggable
 			dragenter: function(e) { e.preventDefault();},
@@ -66,7 +66,7 @@
 			dragleave: function() {	
 				if($this.hasClass("cible")){
 					//e.dataTransfer.setData('text/html', $(this).text());
-					$(this).text("");
+					$(this).html("");
 				};
 			},
 			// déclenché tant qu on a pas lâché l élément
@@ -79,15 +79,15 @@
 					//On duplique le texte dans le nouvel element
 					// on récupère le texte initial 
 					var data = e.dataTransfer.getData('text/html');
-					$(this).text(data);
+					$(this).html(data);
 				//si les deux cellule sont des cibles on fait l'échange de donné
 				}else if ($this.hasClass("cible")&$(this).hasClass("cible")){
 					// on récupère le texte initial 
 					var data = e.dataTransfer.getData('text/html');
 					// on met le nouveau texte à la place de l ancien
-					$this.text($(this).text());
+					$this.html($(this).html());
 					//On duplique le texte dans le nouvel element
-					$(this).text(data);
+					$(this).html(data);
 				};
 			},
 			// fin du drag (même sans drop)
@@ -112,13 +112,10 @@
 
 <div class="section " id="section0">
 	<h1>FlowChem</h1>
-	<p>La chimie réinventée</p>
-	<p>Introduction de la page.</p>
-	<p>Avec un peu de texte et des images.</p>
-	<p><span class="toSlide" data-index="2">Click here to go to slide 2</span></p>
+	<cite>A new idea about chemical production</cite>
 </div>
 <div class="section" id="section1">
-	<div class="slide">
+	<div class="slide" id="slide1-0">
 		<div class="intro">
 			<h2>Batch processing</h2>
 			<p>Créer votre propre enchainement de processus !</p>
@@ -127,14 +124,15 @@
 			<table class="liste">
 				<tbody>
 					<tr>
-						<td draggable="true" class="origine">A</td>
-						<td draggable="true" class="origine">B</td>
-						<td draggable="true" class="origine">C</td>
-						<td draggable="true" class="origine">D</td>
-						<td draggable="true" class="origine">E</td>
-						<td draggable="true" class="origine">F</td>
-						<td draggable="true" class="origine">G</td>
+						<td draggable="true" class="origine"><img draggable="false" src="imgs/1-reactor-add-reagent-batch.png" alt="reactor add reagent batch" /><p>reactor add reagent batch</p></td>
+						<td draggable="true" class="origine"><img draggable="false" src="imgs/2-reactor-heat-transfert-batch.png" alt="reactor heat transfert batch" /><p>reactor heat transfert batch</p></td>
+						<td draggable="true" class="origine"><img draggable="false" src="imgs/3-reactor-melange-batch.png" alt="reactor melange batch" /><p>reactor melange batch</p></td>
 					</tr>
+				</tbody>
+			</table>
+			<br>
+			<table class="liste">
+				<tbody>
 					<tr>
 						<td draggable="true" class="cible"></td>
 						<td draggable="true" class="cible"></td>
@@ -154,7 +152,7 @@
 			<p><img src="imgs/schema.png" alt="schema" width="280px"/></p>
 		</div>
 	</div>
-	<div class="slide">
+	<div class="slide"id="slide1-1">
 		<div class="intro">
 			<img src="imgs/1.png" alt="simple" />
 			<h2>Flow Processing</h2>

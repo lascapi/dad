@@ -15,7 +15,7 @@
 			 var console = { log: function() {} };
 		</script>
 	<![endif]-->
-		
+			
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>	
 	
@@ -66,7 +66,7 @@
 			dragleave: function() {	
 				if($this.hasClass("cible")){
 					//e.dataTransfer.setData('text/html', $(this).text());
-					$(this).html("");
+					$this.html("");
 				};
 			},
 			// déclenché tant qu on a pas lâché l élément

@@ -43,6 +43,9 @@ q:before,q:after {
 }
 abbr,acronym { border: 0;
 }
+cite{
+	font-style: italic;
+}
 
 /*---------*/
 /*draggable*/
@@ -61,12 +64,12 @@ abbr,acronym { border: 0;
 	/* display:inline; */
 }
 .liste tbody tr td {
-	width:150px;
+	width:120px;
 	height:100%;
 	cursor: move;
 	text-align:center;
 	vertical-align:center;
-	padding: 0.5em;
+	padding: 0.1em;
 	background-color:rgba(255,255,255,0);
 	list-style-type:none;
 }
@@ -96,7 +99,7 @@ body{
 	position: relative;
 }
 h1, h2{
-	font-size: 8em;	
+	font-size: 6em;	
 	color:rgba(144,200,195,1);
 	/* text-shadow: 0 0 0.1em #459080; */
 }
@@ -242,4 +245,32 @@ p{
 	border-radius: 50%;
 	position: absolute;
 	z-index: 1;
+}
+.sticky{
+	margin:1em 2em;
+	padding:1em 2em;
+	float:left;
+	/* position: relative; */
+	width:275px;
+	text-align:left;
+	color:#000;
+	background:  #789;
+}
+.sticky h3 {
+	font-size: 2em;
+	color:#000;
+}
+.sticky ul li{
+	margin-left:2em;
+	list-style: circle;
+}
+.sticky p{width:100%}
+.sticky img{margin:0}
+/* #yourdream{clear:both} */
+#game{
+	/* position:relative; */
+	/* float:right; */
+	/* clear:both; */
+	/* width:60%; */
+	margin-left:300px;
 }

@@ -54,18 +54,32 @@ abbr,acronym { border: 0;
 	user-select: none;
 }
 .liste {
-	/*margin: 0 200px;*/
-	display:inline;
-	}
-.liste tr td {
-	width:50px;
-	height:50px;
-	border: 1px solid #000;
+	min-width:500px;
+	max-width:1000px;
+	height:150px;
+	margin: 0 auto;
+	/* display:inline; */
+}
+.liste tbody tr td {
+	width:150px;
+	height:100%;
 	cursor: move;
 	text-align:center;
-	padding:2px;
-	background-color:white;
+	vertical-align:center;
+	padding: 0.5em;
+	background-color:rgba(255,255,255,0);
 	list-style-type:none;
+}
+.liste .cible{
+	background-color:rgba(255,255,255,0.5);
+	border-right: 1px solid #fff;
+	border-left: 1px solid #aaa;
+}
+.liste tbody tr td p{
+	width:100%;
+	font-size:0.8em;
+	color:#000;
+	background-color:rgba(255,255,255,0.2);
 }
 
 /* Custom CSS
@@ -82,7 +96,9 @@ body{
 	position: relative;
 }
 h1, h2{
-	font-size: 6em;	
+	font-size: 8em;	
+	color:rgba(144,200,195,1);
+	/* text-shadow: 0 0 0.1em #459080; */
 }
 p{
 	font-size: 2em;
@@ -98,7 +114,7 @@ p{
 	background:#fff;
 	background: rgba(255,255,255, 0.5);
 	-webkit-border-radius: 10px; 
-				border-radius: 10px; 
+	border-radius: 10px; 
 }
 #menu li.active{
 	background:#666;
@@ -134,9 +150,37 @@ p{
 	margin:0;
 }
 #section0 {
-	background-repeat:repeat-y;
-	background-size:100%;
-	background-image: url('imgs/fond-01.png');
+	background-repeat:no-repeat;
+	/* background-size:100% 100%; */
+	background-clip: border-box ;
+	background-position: center;
+	background-image: url('imgs/nuage.jpg');
+}
+#section0 cite{
+	padding:0.2em 1em;
+	color:rgba(144,200,195,1);
+	background-color: #fff;
+}
+#slide1-0 {
+	background-repeat:no-repeat;
+	/* background-size:100% 100%; */
+	background-clip: border-box ;
+	background-position: center;
+	background-image: url('imgs/nuage07.jpg');
+}
+#slide1-1 {
+	background-repeat:no-repeat;
+	/* background-size:100% 100%; */
+	background-clip: border-box ;
+	background-position: center;
+	background-image: url('imgs/nuage02.jpg');
+}
+#section2 {
+	background-repeat:no-repeat;
+	/* background-size:100%; */
+	background-clip: content-box;
+	background-position: center;
+	background-image: url('imgs/nuage05.jpg');
 }
 #section0 img,
 #section1 img{
